@@ -10,6 +10,7 @@
 
 # Decleration of variables
 # last - calls a list of the recent logins.
+num=1
 
 # Decleration of functions
 userHistory () {
@@ -17,8 +18,8 @@ userHistory () {
 }
 # Main
 
+for ((i=0; i<=3; i++)); do
+    userHistory &
+done
 
-userHistory
-userHistory
-userHistory
 # End
