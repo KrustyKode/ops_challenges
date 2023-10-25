@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Script Name:                  HDemo.sh
+# Script Name:                  add.sh
 # Author:                       Michael Sineiro
 # Date of latest revision:      10/25/2023
-# Purpose:                      Demo variables / and functions
+# Purpose:                      add two numbers
 # Execution:                    bash add.sh ./add.sh chmod -x add.sh
 
 
