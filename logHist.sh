@@ -9,13 +9,16 @@
 
 
 # Decleration of variables
-last
-# Decleration of functions
+# last - calls a list of the recent logins.
 
-# Main
+# Decleration of functions
 userHistory () {
     last
 }
+# Main
 
+
+userHistory
+userHistory
 userHistory
 # End
