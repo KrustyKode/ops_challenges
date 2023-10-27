@@ -11,6 +11,11 @@
 
 # Decleration of functions
 
+
+
+### Uses a nested if else loop that continues to rerun if an invalid PID is given and exits after a valid PID or CTRL+C is entered.
+# Main
+
 while true; do
     echo "Processes:"
     ps aux
@@ -24,12 +29,6 @@ while true; do
         echo "Process with PID $pid killed."
     fi
 done
-
-
-
-
-
-# Main
 
 
 # End
