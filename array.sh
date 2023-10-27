@@ -9,10 +9,8 @@
 
 # Decleration of variables
 
-mkdir dir1
-mkdir dir2
-mkdir dir3
-mkdir dir4
+mkdir dir1 dir2 dir3 dir4
+
 
 newDir=("dir1" "dir2" "dir3" "dir4")
 
