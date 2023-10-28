@@ -13,7 +13,8 @@
 
 
 
-### Uses a nested if else loop that continues to rerun if an invalid PID is given and exits after a valid PID or CTRL+C is entered.
+### Uses a nested if else loop that continues to rerun if a blank statement is given
+### and exits after a valid PID or CTRL+C is entered.
 # Main
 
 while true; do
@@ -26,7 +27,7 @@ while true; do
         echo "Please enter a valid PID."
     else
         kill "$pid"
-        echo "Process with PID $pid killed."
+        echo "PID $pid killed."
     fi
 done
 
