@@ -52,6 +52,3 @@ format "Network Adapter" "$networkInfo"
 
 
 # End
-
-
-
