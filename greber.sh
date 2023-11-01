@@ -23,11 +23,7 @@
 
 # Main
 
-
-# Use lshw and grep to grab and filter info
-output=$(sudo lshw | grep -E "description:|product:|vendor:|physical id:|bus info:
-                                |width:|clock:|capabilities:|configuration:|resources:")
-
+output=$(sudo lshw)
 
 # computer name
 name=$(hostname)
@@ -43,15 +39,15 @@ format "RAM" "$ramInfo"
 
 # display adapter 
 displayInfo=$(echo "$output" | grep -E "description:|product:|vendor:|physical id:
-                                            |bus info:|width:|clock:|capabilities:
-                                            |configuration:|resources:")
+                                        |bus info:|width:|clock:|capabilities:
+                                        |configuration:|resources:")
 format "Display Adapter" "$displayInfo"
 
 # network adapter
 networkInfo=$(echo "$output" | grep -E "description:|product:|vendor:|physical id:
-                                            |bus info:|logical name:|version:|serial:
-                                            |size:|capacity:|width:|clock:|capabilities:
-                                            |configuration:|resources:")
+                                        |bus info:|logical name:|version:|serial:
+                                        |size:|capacity:|width:|clock:|capabilities:
+                                        |configuration:|resources:")
 format "Network Adapter" "$networkInfo"
 
 
