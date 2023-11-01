@@ -3,7 +3,7 @@
 # Script Name:                  greber.sh
 # Author:                       Michael Sineiro
 # Date of latest revision:      10/31/2023
-# Purpose:                      Demo variables / and functions
+# Purpose:                      grab and filter info w/ greb
 # Execution:                    bash greber.sh ./greber.sh chmod -x greber.sh
 
 
@@ -22,12 +22,11 @@
 }
 
 # Main
-#!/bin/bash
 
-# Use lshw to retrieve system information and filter with grep
+
+# Use lshw and grep to grab and filter info
 output=$(sudo lshw | grep -E "description:|product:|vendor:|physical id:|bus info:
                                 |width:|clock:|capabilities:|configuration:|resources:")
-
 
 
 # computer name
