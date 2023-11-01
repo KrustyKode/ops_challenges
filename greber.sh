@@ -34,7 +34,7 @@ name=$(hostname)
 format "Computer Name" "$name"
 
 # CPU
-cpuInfo=$(echo "$output" | grep -E "description:|product:|vendor:|physical id:|bus info:|width:")
+cpuInfo=$(echo "$output" | grep -E "product:|vendor:|physical id:|bus info:|width:")
 format "CPU" "$cpuInfo"
 
 # RAM
