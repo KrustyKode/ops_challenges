@@ -12,8 +12,10 @@
 # Decleration of functions
 
 # Main
+
 # making Dirs to stick in an array
 mkdir dir1 dir2 
+
 # I needed an array
 newArray=("dir1" "dir2")
 
