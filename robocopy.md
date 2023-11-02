@@ -6,7 +6,7 @@ setlocal enabledelayedexpansion
 # prompting user to "Enter the SOURCE folder path:" and stores it in sourcePath.
 set /p sourcePath=Enter the source folder path:
 
-# prompting user to Enter the SOURCE folder path:" and stores it in destinationPath.
+# prompting user to Enter the DESTINATION folder path:" and stores it in destinationPath.
 set /p destinationPath=Enter the destination folder path:
 
 # If loop that states if the users selected sourcePath does not exist
