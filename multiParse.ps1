@@ -14,7 +14,7 @@
 Get-Process | Sort-Object -Descending CPU | Select-Object -ExpandProperty Name
 
 # Print to the terminal screen all active processes ordered by highest Process Identification Number 
-Get-Process | Sort-Object -Descending ID | Select-Object -ExpandProperty Name
+Get-Process | Sort-Object -Descending ID | Select-Object -ExpandProperty ID
 
 # Print to the terminal screen the top five active processes ordered by highest Working Set
 Get-Process | Sort-Object -Descending WorkingSet | Select-Object -First 5 -ExpandProperty Name
