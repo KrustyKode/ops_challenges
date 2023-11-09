@@ -1,23 +1,21 @@
 # ops_challenges
-Ops 201 challenges
+## Ops 201 challenges
 
-## Making some scripts today. for lab
-
-
-### # Decleration of variables
-
-
-newDir=("dir1" "dir2" "dir3" "dir4")
-
-# Decleration of functions
-echo ${newDir[2]}
-echo ${newDir[0]}
-
-for  ((i=1; i<=5; i++)); do
-     mkdir dir1 &
-done
-echo ${newDir[0]}
-# Main
-
-
-# End
+- [add](add.sh)
+- [array](array.sh)
+- [concat](concat.sh)
+- [demo](demo.sh)
+- [example](example.sh)
+- [filedetect](fileDetect.sh)
+- [greber](greber.sh)
+- [grocerystore](grocerydemo.sh)
+- [hellowworld](helloworld.sh)
+- [killer](killer.sh)
+- [loghist](logHist.sh)
+- [logs](logs.ps1)
+- [loops](loops.sh)
+- [multiparse](multiParse.ps1)
+- [robocopy](robocopy.md)
+- [signer](signer.bat)
+- [standUp](standUP.ps1)
+- [exampleDraw](example.drawio)
