@@ -15,7 +15,7 @@
 # while loop that runs until the user enters quit
 # prints the echo and prompts for user input
 while true; do
-    echo "Please enter the directory path:" 
+    echo "Please enter the directory path: or enter "quit" to exit" 
     read dirPath
 
     # checks if the user wants to quit
