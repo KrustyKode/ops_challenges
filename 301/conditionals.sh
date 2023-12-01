@@ -14,7 +14,7 @@ function hello {
     echo "Hello world!"
     read -n1 -r -p "Press any key to continue..."
 }
-# still pissed about the lab
+# functions 
 function loopback {
     ping -c 1 127.0.0.1
     read -n1 -r -p "Press any key to continue..."
@@ -58,5 +58,5 @@ while true; do
     esac
 done
 
-# explain the lab better and i'll explain the code better.
+
 # End
