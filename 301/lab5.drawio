@@ -1,0 +1,57 @@
+<mxfile host="65bd71144e">
+    <diagram id="1WlixggcTScCoHuU4nKt" name="Page-1">
+        <mxGraphModel dx="1179" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="195" y="360" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="1">
+                    <mxGeometry x="560" y="340" width="50" height="45" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="220" y="440" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4" value="PC A (kali)&lt;br&gt;192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="185" y="420" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="pfsenseA&amp;nbsp;&lt;br&gt;WAN 192.168.1.23&lt;br&gt;Lan 192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="180" y="40" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" vertex="1" parent="1">
+                    <mxGeometry x="155" y="220" width="130" height="130" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" vertex="1" parent="1">
+                    <mxGeometry x="500" y="230" width="160" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="VB&lt;br&gt;intnet-A&lt;br&gt;192.168.4.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="185" y="250" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="VB&lt;br&gt;intnet-B&lt;br&gt;192.168.5.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="540" y="250" width="80" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="PC B(kali)&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="555" y="405" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="180" y="110" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" vertex="1" parent="1">
+                    <mxGeometry x="545" y="120" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="pfsenseB&lt;br&gt;WAN&lt;br&gt;192.168.1.24&lt;br&gt;LAN&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="30" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="10" width="200" height="110" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="VB&lt;br&gt;NAT NET&lt;br&gt;192.168.1.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="40" width="60" height="30" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
