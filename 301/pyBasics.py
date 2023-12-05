@@ -1,15 +1,21 @@
 import re
 import os
 
+# Script Name:                  pyBasics.py
+# Author:                       Michael Sineiro
+# Date of latest revision:      12/4/2023
+# Purpose:                      Get current user, IP & system info
+# Execution:                    python3 pyBasics.py
 
-def get_username():
+
+def getUser():
     """
     Returns the currently logged-in username.
     """
     return os.popen("whoami").read().strip()
 
 
-def get_ip_address():
+def getIP():
   """
   Extracts and returns the IP address of the machine using regular expressions.
   """
@@ -20,30 +26,30 @@ def get_ip_address():
   return None
 
 
-def get_system_info():
+def getInfo():
     """
     Returns a summary of the system hardware using the "lshw" command.
     """
     return os.popen("lshw -short").read()
 
 
-def display_system_details():
+def details():
     """
     Prints the username, IP address, and system information.
     """
-    username = get_username()
-    ip_address = get_ip_address()
-    system_info = get_system_info()
+    username = getUser()
+    urIP = getIP()
+    sysInfo = getInfo()
 
-    if ip_address is None:
+    if urIP is None:
         print("Error: Unable to find IP address")
     else:
         print(f"Currently logged in user: {username}")
-        print(f"IP address of the machine: {ip_address}")
+        print(f"IP address of the machine: {urIP}")
         print("A summary of your system hardware:")
-        print(system_info)
+        print(sysInfo)
 
     print("Bash commands executed successfully!")
 
 # Call the display function to execute everything
-display_system_details()
+details()
