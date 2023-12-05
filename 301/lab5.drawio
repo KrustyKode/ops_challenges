@@ -1,55 +1,78 @@
 <mxfile host="65bd71144e">
     <diagram id="1WlixggcTScCoHuU4nKt" name="Page-1">
-        <mxGraphModel dx="1179" dy="581" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1387" dy="1784" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
-                <mxCell id="2" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="1">
-                    <mxGeometry x="195" y="360" width="50" height="45" as="geometry"/>
+                <mxCell id="2" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="135" y="360" width="50" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="3" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" vertex="1" parent="1">
-                    <mxGeometry x="560" y="340" width="50" height="45" as="geometry"/>
+                <mxCell id="3" value="" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=none;fillColor=#00BEF2;shape=mxgraph.azure.computer;pointerEvents=1;" parent="1" vertex="1">
+                    <mxGeometry x="635" y="325" width="50" height="45" as="geometry"/>
                 </mxCell>
-                <mxCell id="12" style="edgeStyle=none;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="4">
+                <mxCell id="12" style="edgeStyle=none;html=1;" parent="1" edge="1">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint x="220" y="440" as="targetPoint"/>
+                        <mxPoint x="210" y="450" as="sourcePoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="4" value="PC A (kali)&lt;br&gt;192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="185" y="420" width="60" height="30" as="geometry"/>
+                <mxCell id="4" value="PC A (kali)&lt;br&gt;192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="135" y="420" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="5" value="pfsenseA&amp;nbsp;&lt;br&gt;WAN 192.168.1.23&lt;br&gt;Lan 192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="180" y="40" width="60" height="30" as="geometry"/>
+                <mxCell id="5" value="pfsenseA&amp;nbsp;&lt;br&gt;WAN 192.168.1.14.23&lt;br&gt;Lan 192.168.4.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="120" y="30" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="6" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" vertex="1" parent="1">
-                    <mxGeometry x="155" y="220" width="130" height="130" as="geometry"/>
+                <mxCell id="6" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" parent="1" vertex="1">
+                    <mxGeometry x="110" y="205" width="130" height="130" as="geometry"/>
                 </mxCell>
-                <mxCell id="8" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" vertex="1" parent="1">
-                    <mxGeometry x="500" y="230" width="160" height="110" as="geometry"/>
+                <mxCell id="8" value="" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.cloud_callout" parent="1" vertex="1">
+                    <mxGeometry x="575" y="215" width="160" height="110" as="geometry"/>
                 </mxCell>
-                <mxCell id="9" value="VB&lt;br&gt;intnet-A&lt;br&gt;192.168.4.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="185" y="250" width="60" height="30" as="geometry"/>
+                <mxCell id="9" value="VB&lt;br&gt;intnet-A&lt;br&gt;192.168.4.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="145" y="235" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="VB&lt;br&gt;intnet-B&lt;br&gt;192.168.5.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="540" y="250" width="80" height="50" as="geometry"/>
+                <mxCell id="10" value="VB&lt;br&gt;intnet-B&lt;br&gt;192.168.5.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="615" y="235" width="80" height="50" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="PC B(kali)&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="555" y="405" width="60" height="30" as="geometry"/>
+                <mxCell id="11" value="PC B(kali)&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="390" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" vertex="1" parent="1">
-                    <mxGeometry x="180" y="110" width="80" height="80" as="geometry"/>
+                <mxCell id="13" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" parent="1" vertex="1">
+                    <mxGeometry x="125" y="110" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="14" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" vertex="1" parent="1">
-                    <mxGeometry x="545" y="120" width="80" height="80" as="geometry"/>
+                <mxCell id="14" value="" style="image;html=1;image=img/lib/clip_art/networking/Router_128x128.png" parent="1" vertex="1">
+                    <mxGeometry x="615" y="120" width="80" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="15" value="pfsenseB&lt;br&gt;WAN&lt;br&gt;192.168.1.24&lt;br&gt;LAN&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="550" y="30" width="60" height="30" as="geometry"/>
+                <mxCell id="15" value="pfsenseB&lt;br&gt;WAN&lt;br&gt;192.168.1.13.24&lt;br&gt;LAN&lt;br&gt;192.168.5.1" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="620" y="30" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="16" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-                    <mxGeometry x="280" y="10" width="200" height="110" as="geometry"/>
+                <mxCell id="16" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="220" y="-40" width="300" height="200" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="VB&lt;br&gt;NAT NET&lt;br&gt;192.168.1.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                <mxCell id="17" value="VB&lt;br&gt;NAT NET&lt;br&gt;192.168.1.0/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="350" y="40" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;" edge="1" parent="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="600" y="370" as="sourcePoint"/>
+                        <mxPoint x="590" y="170" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="500" y="250"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="21" value="" style="shape=flexArrow;endArrow=classic;startArrow=classic;html=1;width=15.294117647058824;startSize=3.776470588235294;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="16" target="14">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="510" y="145" as="sourcePoint"/>
+                        <mxPoint x="630" y="100" as="targetPoint"/>
+                        <Array as="points"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="Public IP&amp;nbsp;&lt;br&gt;76.28.153.131/24" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="350" y="80" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="Public IP&lt;br&gt;76.28.153.131&lt;br&gt;WAN&lt;br&gt;182.168.1.13" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="200" width="100" height="70" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
