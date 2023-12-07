@@ -15,22 +15,22 @@ def manipulate_fruits():
   # Create a copy of the fruits list using list comprehension.
   fruits_copy = [fruit for fruit in fruits]
 
-  # Get the number of occurrences of "apple" using built-in methods.
+  # Get the number of occurrences of "apple".
   apple_count = fruits.count("apple")
 
   # Extend the list with additional elements using chainable assignment.
   fruits += ["apple", "banana"]
 
-  # Find the index of the first "banana" using built-in methods.
+  # Find the index of the first "banana".
   banana_index = fruits.index("banana")
 
-  # Insert "cherry" at the beginning of the list using built-in methods.
+  # Insert "cherry" at the beginning of the list.
   fruits.insert(0, "cherry")
 
   # Pop the last element from the list and store it in a variable.
   last_fruit = fruits.pop()
 
-  # Remove the first occurrence of "apple" using built-in methods.
+  # Remove the first occurrence of "apple".
   fruits.remove("apple")
 
   # Print the fruits list in reverse order using loop and reversed function.
