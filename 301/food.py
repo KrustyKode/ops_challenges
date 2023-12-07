@@ -1,66 +1,62 @@
-# Create a list of ten string elements
-fruits = ["apple", "banana", "cherry", "orange", "grapefruit", "kiwi", "mango", "pineapple", "strawberry", "watermelon"]
+def manipulate_fruits():
+  """
+  This function manipulates a list of fruits, performing various operations
+  including slicing, modifications, data structure conversions, and printing.
+  """
+  # Print a slice of the fruits list (index 3 to 5).
+  print(fruits[3:6])
 
-# Print the fourth element of the list
-print(fruits[3])  
+  # Replace element at index 6 with "onion".
+  fruits[6:7] = ["onion"]
 
-# Print the sixth through tenth element of the list
-print(fruits[5:])
-# Change the value of the seventh element to "onion"
-fruits[6] = "onion"
+  # Add "grape" to the end of the list using chainable assignment.
+  fruits += ["grape"]
 
-# Use append() to add "grape" to the end of the list
-fruits.append("grape")
+  # Create a copy of the fruits list using list comprehension.
+  fruits_copy = [fruit for fruit in fruits]
 
-# Use clear() to remove all elements from the list
-fruits.clear()
+  # Get the number of occurrences of "apple" using built-in methods.
+  apple_count = fruits.count("apple")
 
-# Use copy() to create a copy of the list
-fruits_copy = fruits.copy()
+  # Extend the list with additional elements using chainable assignment.
+  fruits += ["apple", "banana"]
 
-# Use count() to count the number of times "apple" appears in the list
-apple_count = fruits.count("apple")
+  # Find the index of the first "banana" using built-in methods.
+  banana_index = fruits.index("banana")
 
-# Use extend() to add the elements of the list ["apple", "banana"] to the end of the list
-fruits.extend(["apple", "banana"])
+  # Insert "cherry" at the beginning of the list using built-in methods.
+  fruits.insert(0, "cherry")
 
-# Use index() to find the index of the first occurrence of "banana" in the list
-banana_index = fruits.index("banana")
+  # Pop the last element from the list and store it in a variable.
+  last_fruit = fruits.pop()
 
-# Use insert() to insert the element "cherry" at the beginning of the list
-fruits.insert(0, "cherry")
+  # Remove the first occurrence of "apple" using built-in methods.
+  fruits.remove("apple")
 
-# Use pop() to remove and return the last element of the list
-last_fruit = fruits.pop()
+  # Print the fruits list in reverse order using loop and reversed function.
+  for fruit in reversed(fruits):
+      print(fruit)
 
-# Use remove() to remove the first occurrence of "apple" from the list
-fruits.remove("apple")
+  # Create a sorted copy of the fruits list using the built-in sorted function.
+  sorted_fruits = sorted(fruits)
 
-# Use reverse() to reverse the order of the elements in the list
-fruits.reverse()
+  # Create a tuple and set containing fruits using set literals.
+  fruits_tuple = ("apple", "banana", "cherry")
+  fruits_set = {"apple", "banana", "cherry"}
 
-# Use sort() to sort the elements in the list in ascending order
-fruits.sort()
+  # Create a dictionary associating fruits with their colors using literal syntax.
+  fruits_dict = {"apple": "red", "banana": "yellow", "cherry": "red"}
 
-# Create a tuple
-fruits_tuple = ("apple", "banana", "cherry")
+  # Print all the manipulated data structures:
+  print(fruits)
+  print(fruits_copy)
+  print(apple_count)
+  print(banana_index)
+  print(last_fruit)
+  print(fruits_tuple)
+  print(fruits_set)
+  print(fruits_dict)
+  print(sorted_fruits)
 
-# Create a set
-fruits_set = {"apple", "banana", "cherry"}
-
-# Create a dictionary
-fruits_dict = {
-    "apple": "red",
-    "banana": "yellow",
-    "cherry": "red",
-}
-
-# Print the results
-print(fruits)
-print(fruits_copy)
-print(apple_count)
-print(banana_index)
-print(last_fruit)
-print(fruits_tuple)
-print(fruits_set)
-print(fruits_dict)
+# Call the function
+manipulate_fruits()
