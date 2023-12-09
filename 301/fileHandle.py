@@ -1,5 +1,11 @@
 import os
 
+# Script Name:                  fileHandle.sh
+# Author:                       Michael Sineiro
+# Date of latest revision:      11/28/2023
+# Purpose:                      Opens a new text file, writes some lines
+##########                      and then deletes itself.
+# Execution:                    bash fileHandle.sh ./fileHandle.sh chmod -x fileHandle.sh
 
 # Create a new file
 with open("new_file.txt", "w") as f:
@@ -16,7 +22,6 @@ with open("new_file.txt", "r") as f:
 print(f"First line: {firstLine}")
 
 # Delete the file
-import os
 os.remove("new_file.txt")
 
 print("File deleted successfully.")
