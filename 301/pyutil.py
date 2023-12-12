@@ -3,7 +3,8 @@ import psutil
 # Script Name:                  pyutil.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      12/11/2023
-# Purpose:                      use psutil methods 
+# Purpose:                      use psutil methods to grab info,
+#########                       filters it, and prints.
 # Execution:                    python3 pyutil.py
 
 class CpuTimeAnalyzer:
