@@ -14,7 +14,7 @@ class CpuTimeAnalyzer:
         """Gets cpu times and assigns them to a variable"""
         self.cpu_times = psutil.cpu_times()
 
-    def get_system_info(self):
+    def sysInfo(self):
         """Returns formatted CPU time breakdown."""
         formatInfo = "\t**CPU Time Breakdown:**\n"
 
@@ -26,4 +26,4 @@ class CpuTimeAnalyzer:
 
 if __name__ == "__main__":
     analyzer = CpuTimeAnalyzer()
-    print(analyzer.get_system_info())
+    print(analyzer.sysInfo())
