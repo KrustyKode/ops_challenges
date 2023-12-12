@@ -11,6 +11,7 @@ class CpuTimeAnalyzer:
     """Class for CPU time retrieval and analysis."""
 
     def __init__(self):
+        """Gets cpu times and assigns them to a variable"""
         self.cpu_times = psutil.cpu_times()
 
     def get_system_info(self):
