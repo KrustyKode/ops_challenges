@@ -1,5 +1,11 @@
 import psutil
 
+# Script Name:                  pyutil.py
+# Author:                       Michael Sineiro
+# Date of latest revision:      12/11/2023
+# Purpose:                      use psutil methods 
+# Execution:                    python3 pyutil.py
+
 class CpuTimeAnalyzer:
     """Class for CPU time retrieval and analysis."""
 
@@ -8,7 +14,7 @@ class CpuTimeAnalyzer:
 
     def get_system_info(self):
         """Returns formatted CPU time breakdown."""
-        formatInfo = "**CPU Time Breakdown:**\n"
+        formatInfo = "\t**CPU Time Breakdown:**\n"
 
         # Access values using namedtuple attributes
         for key in self.cpu_times._fields:
