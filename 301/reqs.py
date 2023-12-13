@@ -96,9 +96,8 @@ class HttpRequester:
         if response.content:
             content_type = response.headers.get("Content-Type")
             if content_type and "text" in content_type:
-                # Decode and optionally format the text content
+                # Decode and formatting
                 content = response.content.decode()
-                # Add any formatting here, e.g., line breaks
                 print("\n-- Response Content --\n", content)
             else:
                 print("-- Response content not text. Skipping display. --")
