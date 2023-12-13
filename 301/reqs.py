@@ -33,13 +33,13 @@ class HttpRequester:
         sends the request, and displays the response.
         """
         url = ""
-        valid_url = False
+        isValid = False
 
         # Loop until a valid URL is entered
-        while not valid_url:
+        while not isValid:
             url = input("Enter URL: ")
             if url.startswith("http") or url.startswith("https"):
-                valid_url = True
+                isValid = True
             else:
                 print("Invalid URL format. Please try again.")
 
