@@ -1,5 +1,13 @@
 import requests
 
+# Script Name:                  reqs.py
+# Author:                       Michael Sineiro
+# Date of latest revision:      12/5/2023
+# Purpose:                      Creates a menu that executes requests methods
+#########                       
+# Execution:                    python3 reqs.py
+
+
 
 class HttpRequester:
     """
@@ -36,7 +44,7 @@ class HttpRequester:
                 print("Invalid URL format. Please try again.")
 
         # Define a dictionary mapping numbers to HTTP methods
-        supported_methods = {
+        methMenu = {
             1: "GET",
             2: "POST",
             3: "PUT",
@@ -48,20 +56,20 @@ class HttpRequester:
 
         # Prompt the user to select an HTTP method
         print("Select HTTP Method:")
-        for key, value in supported_methods.items():
+        for key, value in methMenu.items():
             print(f"{key}. {value}")
 
-        method_choice = None
-        while not method_choice:
+        choice = None
+        while not choice:
             try:
-                method_choice = int(input("Enter method number: "))
-                if method_choice not in supported_methods:
+                choice = int(input("Enter method number: "))
+                if choice not in methMenu:
                     raise ValueError
             except ValueError:
                 print("Invalid selection. Please enter a valid number.")
 
         # Get the chosen HTTP method from the dictionary
-        method = supported_methods[method_choice]
+        method = methMenu[choice]
 
         # Print information about the request
         print(f"-- Sending {method.upper()} request to {url} --")
