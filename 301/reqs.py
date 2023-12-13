@@ -1,4 +1,3 @@
-# Import the requests library for making HTTP requests
 import requests
 
 
@@ -81,7 +80,9 @@ class HttpRequester:
             print(f"{key}: {value}")
 
         # Print the status code and its human-readable description
-        print(f"-- Status Code: {response.status_code} ({self.status_codes.get(response.status_code, 'Unknown code')}) --")
+        print(f"-- Status Code: {response.status_code}")
+        print(f"({self.status_codes.get(response.status_code, 'Unknown code')}) --")
+
 
         # Check if the response contains text content
         if response.content:
