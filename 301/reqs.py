@@ -2,7 +2,7 @@ import requests
 
 # Script Name:                  reqs.py
 # Author:                       Michael Sineiro
-# Date of latest revision:      12/5/2023
+# Date of latest revision:      12/13/2023
 # Purpose:                      Creates a menu that executes requests methods
 #########                       
 # Execution:                    python3 reqs.py
@@ -19,7 +19,7 @@ class HttpRequester:
         This method initializes the class with a dictionary of human-readable
         descriptions for common HTTP status codes.
         """
-        self.status_codes = {
+        self.statusCode = {
             200: "OK",
             404: "Site not found",
             401: "Unauthorized",
@@ -89,13 +89,13 @@ class HttpRequester:
 
         # Print the status code and its human-readable description
         print(f"-- Status Code: {response.status_code}")
-        print(f"({self.status_codes.get(response.status_code, 'Unknown code')}) --")
+        print(f"({self.statusCode.get(response.status_code, 'Unknown code')}) --")
 
 
         # Check if the response contains text content
         if response.content:
-            content_type = response.headers.get("Content-Type")
-            if content_type and "text" in content_type:
+            contentType = response.headers.get("Content-Type")
+            if contentType and "text" in contentType:
                 # Decode and formatting
                 content = response.content.decode()
                 print("\n-- Response Content --\n", content)
