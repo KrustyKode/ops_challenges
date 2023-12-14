@@ -2,7 +2,7 @@ Import-Module ActiveDirectory
 
 # Script Name:                  standUP.ps1
 # Author:                       Michael Sineiro
-# Date of latest revision:      11/6/2023
+# Date of latest revision:      12/13/2023
 # Purpose:                      add a user to active directory 
 # I refereced this guide https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 
