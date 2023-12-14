@@ -7,18 +7,24 @@ Import-Module ActiveDirectory
 # I refereced this guide https://learn.microsoft.com/en-us/powershell/module/activedirectory/?view=windowsserver2022-ps
 
 # Read user input
-$firstName = Read-Host "Enter first name:"
-$lastName = Read-Host "Enter last name:"
-$email = Read-Host "Enter email address (username will be derived):"
+# Read user input
+$fullName = Read-Host "Enter full name (First Last):"
+$username = Read-Host "Enter desired username:"
+$email = Read-Host "Enter email address (UPN will be derived):"
+$department = Read-Host "Enter department (optional):"
+$location = Read-Host "Enter location (optional):"
+$title = Read-Host "Enter job title (optional):"
+$company = Read-Host "Enter company (optional):"
+
+# Extract first and last name from full name
+$firstName = $fullName.Split(" ")[0]
+$lastName = $fullName.Split(" ")[-1]
 
 # Validate email address format
 if (!([System.Net.Mail.MailAddress]::IsValid($email))) {
   Write-Error "Invalid email address format!"
   exit
 }
-
-# Extract username from email
-$username = $email.Split("@")[0]
 
 # Create AD user
 try {
@@ -27,10 +33,10 @@ try {
     -SamAccountName $username
     -UserPrincipalName "$email"
     -EmailAddress $email
-    -Department "TPS"
-    -Location "Springfield, OR"
-    -Title "TPS Reporting Lead"
-    -Company "GlobeX USA"
+    -Department $department
+    -Location $location
+    -Title $title
+    -Company $company
     -Enabled $true
   Write-Host "User '$firstName $lastName' created successfully!"
 }
@@ -48,3 +54,6 @@ if ($user) {
 
 # Pause for user review before exiting
 Read-Host "Press any key to exit..."
+
+# Clean up temporary variables (optional)
+# $firstName, $lastName, $email, $username, $user
