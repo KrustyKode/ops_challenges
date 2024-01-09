@@ -2,6 +2,21 @@
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/18/2024
 # Purpose:                      configures auto-lock-screen, windows scans, and OS updates.
+<# I used the following websites for reference.  
+https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/use-powershell-cmdlets-microsoft-defender-antivirus?view=o365-worldwide
+
+#>   
+
+# Store the current execution policy
+$originalExecutionPolicy = Get-ExecutionPolicy
+
+# Set the execution policy to Bypass for the duration of the script
+Set-ExecutionPolicy Bypass -Scope Process -Force
+
+# Install PSWindowsUpdate module if not already installed
+if (-not (Get-Module -ListAvailable -Name PSWindowsUpdate)) {
+    Install-Module -Name PSWindowsUpdate -Force -AllowClobber
+}
 
 function Show-Menu {
     Clear-Host
@@ -50,23 +65,16 @@ function Schedule-DefenderScan {
 }
 
 function Enable-OSUpdates {
-    # Enable automatic OS updates
-    $updateService = Get-Service -Name wuauserv
-
-    if ($updateService.Status -ne 'Running') {
-        Start-Service wuauserv
-        Write-Host "Windows Update service started."
-    }
-
+    # Enable automatic OS updates using Get-WindowsUpdate cmdlet
     try {
-        # Trigger Windows Update to check for updates
-        $windowsUpdateSession = New-Object -ComObject Microsoft.Update.Session
-        $updateSearcher = $windowsUpdateSession.CreateUpdateSearcher()
-        $updates = $updateSearcher.Search("IsInstalled=0")
+        # Import the PSWindowsUpdate module
+        Import-Module PSWindowsUpdate -Force
+
+        # Check for and install updates
+        $updates = Get-WindowsUpdate -Install -AcceptAll -AutoReboot
 
         if ($updates.Count -gt 0) {
-            $updates | ForEach-Object { $_.Install() }
-            Write-Host "Automatic OS Updates enabled successfully."
+            Write-Host "Automatic OS Updates enabled successfully. Installed $($updates.Count) updates."
         } else {
             Write-Host "No updates found."
         }
@@ -75,6 +83,7 @@ function Enable-OSUpdates {
     }
 }
 
+# Main script loop
 do {
     Show-Menu
     $choice = Read-Host "Enter your choice (1-4):"
@@ -90,3 +99,6 @@ do {
     $null = Read-Host "Press Enter to continue..."
 
 } while ($choice -ne 4)
+
+# Reset the execution policy to its original state
+Set-ExecutionPolicy $originalExecutionPolicy -Scope Process -Force
