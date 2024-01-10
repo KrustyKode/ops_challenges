@@ -1,13 +1,8 @@
 # Script Name:                  lockScreen.ps1
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/18/2024
-# Purpose:                      configures auto-lock-screen, windows scans, and OS updates.
-
-
-# Script Name:                  lockScreen.ps1
-# Author:                       Michael Sineiro
-# Date of latest revision:      1/18/2024
-# Purpose:                      Configures auto-lock-screen, windows scans, and OS updates.
+# Purpose:                      pings a target host and returns "Active" or "Nonactive"
+#                               continues until told to stop.
 
 import os
 import time
