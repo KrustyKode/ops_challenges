@@ -4,6 +4,7 @@
 # Purpose:                      configures auto-lock-screen, windows scans, and OS updates.
 <# I used the following websites for reference.  
 https://learn.microsoft.com/en-us/microsoft-365/security/defender-endpoint/use-powershell-cmdlets-microsoft-defender-antivirus?view=o365-worldwide
+https://www.parallels.com/blogs/ras/powershell-windows-update/
 
 #>   
 
