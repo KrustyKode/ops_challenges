@@ -35,6 +35,7 @@ def main():
     previous_status = None
 
     while True:
+        # making timestamp and pinging
         timestamp = time.strftime("%Y-%m-%d %H:%M:%S")
         current_status = "Active" if ping(target_ip) else "Inactive"
 
@@ -44,9 +45,11 @@ def main():
             message = f"Subject: Host Status Update\n\nStatus of {target_ip} {status_change} {current_status} at {timestamp}"
             send_email(sender_email, password, receiver_email, message)
 
+        # Print the status and timestamp to the console and log file
         print(f"{timestamp} Network {current_status} to {target_ip}")
         log_file.write(f"{timestamp} Network {current_status} to {target_ip}\n")
 
+        # Ensure log data is written; sleep three seconds and repeat.
         log_file.flush()
         time.sleep(3)
         previous_status = current_status       
