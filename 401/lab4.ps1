@@ -1,10 +1,28 @@
 # PowerShell Script to Configure Security Settings
 
 # Ensuring 'Password must meet complexity requirements' is set to 'Enabled'
-Write-Host "Enabling 'Password must meet complexity requirements'..."
-$complexity = "ComputerConfiguration/WindowsSettings/SecuritySettings/AccountPolicies/PasswordPolicy/PasswordMustMeetComplexityRequirements"
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ComplexityRequirements" -Value 1
-Write-Host "'Password must meet complexity requirements' has been enabled."
+# PowerShell Script to Configure Security Settings on Windows Server 2022
+
+# Temporary file for security settings
+$secTempFile = "C:\secsettings.cfg"
+
+# Export current security settings
+secedit /export /cfg $secTempFile
+
+# Set 'Password must meet complexity requirements' to Enabled
+(Get-Content $secTempFile).replace("PasswordComplexity = 0", "PasswordComplexity = 1") | Set-Content $secTempFile
+
+# Apply the modified security settings
+secedit /configure /db $env:windir\security\local.sdb /cfg $secTempFile /areas SECURITYPOLICY
+
+# Remove the temporary file
+Remove-Item $secTempFile
+
+
+# Output results
+Write-Host "Security settings have been configured."
+
+# End of script
 
 # Ensuring 'Configure SMB v1 client driver' is set to 'Enabled: Disable driver (recommended)'
 Write-Host "Configuring 'SMB v1 client driver' to 'Enabled: Disable driver (recommended)'..."
