@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+
+
 # Script Name:                  encrypt.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/16/2024
