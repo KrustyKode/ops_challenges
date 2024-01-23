@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Script Name:                  port_scanner.py
+# Script Name:                  scapyScan.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/22/2024
 # Purpose:                      This script is a custom TCP port range scanner that uses the Scapy library
