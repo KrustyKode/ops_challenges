@@ -1,0 +1,4 @@
+Port 53: Open
+Port 80: Open
+Port 443: Open
+Port 631: Open
