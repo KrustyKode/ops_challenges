@@ -1,15 +1,16 @@
 #!/usr/bin/python3
 
-# Script Name: scapyScanEnhanced.py
+# Script Name: scapyScan3.py
 # Author: Michael Sineiro
 # Date of latest revision: 1/24/2024
-# Purpose: This script enhances the original network scanning tool by combining ICMP ping and port scanning functionalities.
-#          It utilizes Scapy for network interactions, aiming for improved efficiency, modularity, and user experience.
+# Purpose: Enhanced network scanning tool with ICMP ping and port scanning functionalities using Scapy.
+# This version includes improvements for user input validation, error handling, and feedback.
 
 import re
 import threading
 from concurrent.futures import ThreadPoolExecutor
-from scapy.all import *
+from scapy.layers.inet import IP, ICMP, TCP
+from scapy.sendrecv import sr1
 from ipaddress import ip_address
 
 def validate_ip(ip):
@@ -18,7 +19,7 @@ def validate_ip(ip):
         ip_address(ip)  # Attempts to create an IPv4Address object from the provided IP.
         return True
     except ValueError:
-        return False
+        return False  # Returns False if the IP address is not valid.
 
 def get_target_info():
     """Prompt the user for the target IP address and port range, ensuring the input is valid."""
@@ -29,34 +30,43 @@ def get_target_info():
 
     start_port = input("Enter the starting port: ")
     end_port = input("Enter the ending port: ")
-    if not start_port.isdigit() or not end_port.isdigit() or int(start_port) > int(end_port):
+    # Validates port input to ensure they are numeric and within the valid range.
+    if not start_port.isdigit() or not end_port.isdigit():
+        print("Ports must be numeric. Using default range 1-1024.")
+        return target_host, 1, 1024
+    start_port, end_port = int(start_port), int(end_port)
+    if start_port < 1 or end_port > 65535 or start_port > end_port:
         print("Invalid port range. Using default range 1-1024.")
-        start_port, end_port = 1, 1024  # Defaults to a common range if input is invalid.
-    else:
-        start_port, end_port = int(start_port), int(end_port)
-
+        return target_host, 1, 1024
     return target_host, start_port, end_port
 
 def icmp_ping(target_host):
     """Check if the target host responds to ICMP echo requests (ping)."""
-    pkt = IP(dst=target_host)/ICMP()
-    resp = sr1(pkt, timeout=1, verbose=0)  # Sends a single ICMP echo request to the target.
-    return resp is not None  # True if a response was received, indicating the host is up.
+    try:
+        pkt = IP(dst=target_host)/ICMP()
+        resp = sr1(pkt, timeout=1, verbose=0)  # Sends a single ICMP echo request.
+        return resp is not None  # True if a response was received, indicating the host is up.
+    except Exception as e:
+        print(f"Error during ICMP ping: {e}")
+        return False  # Ensures the script continues smoothly even if ping fails.
 
 def scan_port(target_host, port, result_list):
     """Scan a specific TCP port on the target host and record if it's open."""
-    pkt = IP(dst=target_host)/TCP(dport=port, flags='S')
-    resp = sr1(pkt, timeout=1, verbose=0)  # Sends a SYN packet to initiate a TCP connection.
-    if resp is not None and TCP in resp and resp[TCP].flags & 0x12:  # Checks for SYN/ACK response, indicating an open port.
-        result_list.append(port)  # Adds the open port to the list.
+    try:
+        pkt = IP(dst=target_host)/TCP(dport=port, flags='S')
+        resp = sr1(pkt, timeout=1, verbose=0)  # Sends a SYN packet to initiate a TCP connection.
+        if resp is not None and TCP in resp and resp[TCP].flags & 0x12:
+            result_list.append(port)  # Adds the open port to the list if a SYN/ACK response is received.
+    except Exception as e:
+        print(f"Error scanning port {port}: {e}")  # Handles potential errors during port scanning.
 
 def port_scan(target_host, start_port, end_port):
     """Perform a TCP port scan on the target host, using threading for efficiency."""
     print(f"Scanning {target_host} for open ports...")
     open_ports = []  # List to store open ports found during the scan.
-    with ThreadPoolExecutor(max_workers=50) as executor:  # Utilizes a thread pool to manage concurrent scans efficiently.
-        for port in range(start_port, end_port + 1):
-            executor.submit(scan_port, target_host, port, open_ports)  # Submits port scan tasks to the thread pool.
+    with ThreadPoolExecutor(max_workers=50) as executor:
+        # Utilizes a thread pool for concurrent scanning of ports.
+        futures = [executor.submit(scan_port, target_host, port, open_ports) for port in range(start_port, end_port + 1)]
     return sorted(open_ports)  # Returns a sorted list of open ports.
 
 def main():
