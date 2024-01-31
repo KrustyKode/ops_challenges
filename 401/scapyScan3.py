@@ -6,20 +6,20 @@
 # Purpose: Enhanced network scanning tool with ICMP ping and port scanning functionalities using Scapy.
 # This version includes improvements for user input validation, error handling, and feedback.
 
-import re
-import threading
+
 from concurrent.futures import ThreadPoolExecutor
 from scapy.layers.inet import IP, ICMP, TCP
-from scapy.sendrecv import sr1
+from scapy.sendrecv import sr1, send
+from scapy.volatile import RandShort
 from ipaddress import ip_address
 
 def validate_ip(ip):
     """Validate the given IP address to ensure it's in a proper IPv4 format."""
     try:
-        ip_address(ip)  # Attempts to create an IPv4Address object from the provided IP.
+        ip_address(ip)
         return True
     except ValueError:
-        return False  # Returns False if the IP address is not valid.
+        return False
 
 def get_target_info():
     """Prompt the user for the target IP address and port range, ensuring the input is valid."""
@@ -30,7 +30,6 @@ def get_target_info():
 
     start_port = input("Enter the starting port: ")
     end_port = input("Enter the ending port: ")
-    # Validates port input to ensure they are numeric and within the valid range.
     if not start_port.isdigit() or not end_port.isdigit():
         print("Ports must be numeric. Using default range 1-1024.")
         return target_host, 1, 1024
@@ -44,45 +43,47 @@ def icmp_ping(target_host):
     """Check if the target host responds to ICMP echo requests (ping)."""
     try:
         pkt = IP(dst=target_host)/ICMP()
-        resp = sr1(pkt, timeout=1, verbose=0)  # Sends a single ICMP echo request.
-        return resp is not None  # True if a response was received, indicating the host is up.
+        resp = sr1(pkt, timeout=1, verbose=0)
+        return resp is not None
     except Exception as e:
         print(f"Error during ICMP ping: {e}")
-        return False  # Ensures the script continues smoothly even if ping fails.
+        return False
 
 def scan_port(target_host, port, result_list):
     """Scan a specific TCP port on the target host and record if it's open."""
+    src_port = RandShort()  # Generate a random source port
     try:
-        pkt = IP(dst=target_host)/TCP(dport=port, flags='S')
-        resp = sr1(pkt, timeout=1, verbose=0)  # Sends a SYN packet to initiate a TCP connection.
-        if resp is not None and TCP in resp and resp[TCP].flags & 0x12:
-            result_list.append(port)  # Adds the open port to the list if a SYN/ACK response is received.
+        response = sr1(IP(dst=target_host)/TCP(sport=src_port, dport=port, flags="S"), timeout=1, verbose=0)
+        if response is not None and response.haslayer(TCP):
+            if response[TCP].flags == 0x12:  # Check for SYN/ACK flags
+                # Send a RST packet to close the connection
+                send(IP(dst=target_host)/TCP(sport=src_port, dport=port, flags="R"), verbose=0)
+                result_list.append(port)  # Port is open
     except Exception as e:
-        print(f"Error scanning port {port}: {e}")  # Handles potential errors during port scanning.
+        print(f"Error scanning port {port}: {e}")
 
 def port_scan(target_host, start_port, end_port):
     """Perform a TCP port scan on the target host, using threading for efficiency."""
     print(f"Scanning {target_host} for open ports...")
-    open_ports = []  # List to store open ports found during the scan.
+    open_ports = []
     with ThreadPoolExecutor(max_workers=50) as executor:
-        # Utilizes a thread pool for concurrent scanning of ports.
         futures = [executor.submit(scan_port, target_host, port, open_ports) for port in range(start_port, end_port + 1)]
-    return sorted(open_ports)  # Returns a sorted list of open ports.
+    return sorted(open_ports)
 
 def main():
     """Main function to orchestrate the scanning process based on user input."""
-    target_host, start_port, end_port = get_target_info()  # Retrieves target information from the user.
+    target_host, start_port, end_port = get_target_info()
     if icmp_ping(target_host):
         print(f"Host {target_host} is up. Proceeding with port scan...")
-        open_ports = port_scan(target_host, start_port, end_port)  # Conducts the port scan if the host is responsive.
+        open_ports = port_scan(target_host, start_port, end_port)
         if open_ports:
-            print("Open ports:")  # Lists open ports if any were found.
+            print("Open ports:")
             for port in open_ports:
                 print(f"Port {port}: Open")
         else:
-            print("No open ports found.")  # Indicates no open ports were detected.
+            print("No open ports found.")
     else:
-        print(f"Host {target_host} is down or not responding to ICMP echo requests.")  # Host did not respond to ping.
+        print(f"Host {target_host} is down or not responding to ICMP echo requests.")
 
 if __name__ == "__main__":
     main()
