@@ -7,7 +7,7 @@
 
 import logging
 
-# Configuration for logging: sets up the log file, log level, and log message format
+# Configure logging to write to a file, setting the level to DEBUG to capture all levels of messages
 logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def log_error(error_message):
@@ -20,8 +20,8 @@ def log_info(info_message):
 
 def safe_input(prompt, data_type):
     """
-    Prompts the user for input, converting it to the specified data type.
-    Repeats the prompt until valid input is received.
+    Safely prompts the user for input, attempting to convert it to a specified data type.
+    If the conversion fails, it logs the error and prompts the user again.
     """
     while True:
         try:
@@ -32,32 +32,30 @@ def safe_input(prompt, data_type):
 
 def divide(a, b):
     """
-    Attempts to divide two numbers, a and b.
-    Logs an error and returns None if division by zero is attempted.
+    Performs division of a by b. Logs the operation and its result if successful.
+    In case of a ZeroDivisionError, it logs the error and returns None.
     """
     try:
-        return a / b
+        result = a / b
+        log_info(f"Division result: {a} / {b} = {result}")  # Log the successful division result
+        return result
     except ZeroDivisionError:
         log_error("Division by zero error.")
         return None
 
 def main():
-    """Main function to run the application."""
+    """Main function to execute the application logic."""
     log_info("Starting the application.")
-    # Prompt the user for numerator and denominator, ensuring input is converted to float
-    numerator = safe_input("Enter the numerator: ", float)
-    denominator = safe_input("Enter the denominator: ", float)
+    numerator = safe_input("Enter the numerator: ", float)  # Ensures input is converted to float
+    denominator = safe_input("Enter the denominator: ", float)  # Ensures input is converted to float
     
-    # Perform the division operation
-    result = divide(numerator, denominator)
-
-    # Output the result or an error message, if division by zero occurred
+    result = divide(numerator, denominator)  # Attempts to divide the numbers and logs the result
     if result is not None:
         print(f"The result of the division is: {result}")
     else:
         print("Error: Division by zero.")
     
-    log_info("Application finished.")
+    log_info("Application finished.")  # Logs the completion of the application's execution
 
 if __name__ == "__main__":
     main()
