@@ -3,7 +3,7 @@
 # Script Name:                  logger.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/22/2024
-# Purpose:                      simple script that gene
+# Purpose:                      simple script that logs the results of division. logs both success and failure.
 
 import logging
 
