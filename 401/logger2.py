@@ -3,7 +3,10 @@
 # Script Name:                  logger.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      1/22/2024
-# Purpose:                      now uses RotatingFileHandler
+# Purpose:                      now uses RotatingFileHandler.
+########                        The log will rotate when it reaches 10KB in size
+########                        This process will repeat, maintaining a history of up to 5 old log files plus the current one.
+
 
 import logging
 from logging.handlers import RotatingFileHandler
