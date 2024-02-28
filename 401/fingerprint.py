@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-# Script Name:                  logger.py
+# Script Name:                  fingerprint.py
 # Author:                       Michael Sineiro
 # Date of latest revision:      2/26/2024
 # Purpose:                      Prompts the user for a URL or IP address. Prompts the user for a port number.
